@@ -1,0 +1,19 @@
+version 1.2
+@totalColumns 14
+@permitEmpty
+@ignoreColumnNameCase
+year: positiveInteger
+type_of_file: is("TL")
+country: any("ALB","CYP","ESP","FRA","GRC","HRV","ITA","MLT","MOR","MON","SVN","ROU","BGR")
+area: any("1","2","3","4","5","6","7","8","9","01","02","03","04","05","06","07","08","09","10","11.1","11.2","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30")
+vessel: any("CIR","MIZ","DLP","EGE","SDM","AND","BIM","BIO","CHA","COR","DAP","DEG","DEM","EGU","EVA","FRP","FUL","GAB","GIS","IGO","IRO","LEU","LIB","MEG","NAU","NAV","NUS","PAR","PEC","PRI","ROS","SAN","TAM","MOL")
+year: positiveInteger range(1993,2100)
+month: positiveInteger range(1,12)
+day: positiveInteger range(1,31)
+haul_number: positiveInteger range(1,999)
+litter_category: any("LO","L1","L2","L3","L4","L5","L6","L7","L8","L9")
+litter_sub_category: unique($country,$area,$vessel,$year,$month,$day,$haul_number,$litter_category,$litter_sub_category) regex("[a-j]") or is("0")
+total_weight_in_the_category_haul: positiveInteger range(0,9999999) or is("NA")
+total_number_in_the_category_haul: positiveInteger range(1,9999999)
+total_weight_in_the_sub_category_haul: positiveInteger range(0,9999999) or is("NA")
+total_number_in_the_sub_category_haul: positiveInteger range(0,9999999) or is("NA")

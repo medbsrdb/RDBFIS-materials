@@ -1,0 +1,11 @@
+version 1.2
+@totalColumns 7
+@permitEmpty
+@ignoreColumnNameCase
+country: any("BEL","BGR","DNK","DEU","EST","IRL","GRC","ESP","FRA","HRV","ITA","CYP","LVA","LTU","MLT","NLD","POL","PRT","ROU","SVN","FIN","SWE","GBR","ENG","GBC","GBG","GBJ","IOM","NIR","SCO")
+acronym: any("avgage","avgloa","totgt","totkw","totves","assets","debts","gtseadays","hrworked","kwseadays","maxseadays","oneves","sixmoreves","subinvest","totcrewwage","totdepcost","totdeprep","totdirsub","totenercons","totenercost","totfishdays","totgtfishdays","totinvest","totjob","totkwfishdays","totlandginc","totnatfte","totnovarcost","tototherinc","totrepcost","totrights","totrightscost","totrightsinc","totseadays","tottrips","totunpaidlab","totvarcost","twofiveves","unpaidemp")
+value: range(0,*) or empty
+unit: any("year","metre","GT","kW","GTday","kWday","day","hour","litre","number","euro")
+year: positiveInteger range(2008,2023)
+comments: length(*,256)
+achieved_sample_rate: range(0, 100) or empty

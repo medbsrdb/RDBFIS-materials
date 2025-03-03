@@ -1,0 +1,20 @@
+version 1.2
+@totalColumns 16
+@permitEmpty
+@ignoreColumnNameCase
+country: any("BEL","BGR","DNK","DEU","EST","IRL","GRC","ESP","FRA","HRV","ITA","CYP","LVA","LTU","MLT","NLD","POL","PRT","ROU","SVN","FIN","SWE","GBR","ENG","GBC","GBG","GBJ","IOM","NIR","SCO")
+acronym: any("avgage","avgloa","totgt","totkw","totves")
+value: range(0,*) or empty
+unit: any("GT","metre","year","kW","number")
+year: positiveInteger range(1991,2023)
+supra_region: any("MBS","NAO","OFR","BS","NA","NS","NONE","AREA37","AREA27")
+fishing_tech: any("DFN","DRB","DTS","FPO","HOK","INACTIVE","MGO","MGP","NO","PG","PGO","PGP","PMP","PS","TBB","TM")
+vessel_length: any("VL0006","VL0612","VL0010","VL1012","VL1218","VL1824","VL2440","VL40XX","NK")
+geo_indicator: any("NGI","NEU","IWE","P2","P3","IC","MA","GF","GP","MQ","MF","RE","YT","NK")
+gear: any("FAD","HAR","MIS","DRB","DRH","FPN","FPO","FYK","GEF","GNC","GND","GNS","GTN","GTR","HMD","LA","LHM","LHP","LLD","LLS","LNB","LNS","LTL","NA","NK","NO","OTB","OTM","OTT","PS","PTB","PTM","SB","SDN","SPR","SSC","SV","TBB")
+fishery: any("NAFO","NEAFC","ICCAT","IOTC","CECAF","WECAFC","SFPA","SFPA_NA","SFPA_IO","SFPA_AO","SFPA_PO","PELAG","DEMER","NK")
+activity: any("L","A","NU") or empty
+cluster_name: length(*,64)
+comments: length(*,256)
+frame_population: range(0,*) or empty
+survey_name: length(*,256)

@@ -1,0 +1,18 @@
+version 1.2
+@totalColumns 13
+@permitEmpty
+@ignoreColumnNameCase
+country: any("BEL","BGR","DNK","DEU","EST","IRL","GRC","ESP","FRA","HRV","ITA","CYP","LVA","LTU","MLT","NLD","POL","PRT","ROU","SVN","FIN","SWE","GBR","ENG","GBC","GBG","GBJ","IOM","NIR","SCO")
+reference_year: positiveInteger range(2013,2023)
+gsa: any("1","2","3","4","5","6","7","8","9","01","02","03","04","05","06","07","08","09","10","11.1","11.2","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30")
+fleet_segment: any("T-20","D-01","D-02","D-03","D-05","INA","L-01","L-02","L-03","L-04","L-05","L-06","L-07","L-08","L-09","NA","P-01","P-02","P-03","P-04","P-05","P-06","P-07","P-08","P-09","P-10","P-11","P-12","P-13","P-14","P-21","P-22","P-24","P-25","P-28","P-29","S-01","S-02","S-03","S-04","S-05","S-06","S-07","S-08","S-09","S-10","S-11","S-12","T-01","T-02","T-03","T-04","T-05","T-06","T-07","T-08","T-09","T-10","T-11","T-12","T-13","T-17","T-22","T-25","T-26","T-28")
+operating_subsidies: regex("^(?:\d{0,12}\.\d{0,2}|\d{0,12})$") or empty
+investments_in_physical_capital: regex("^(?:\d{0,12}\.\d{0,2}|\d{0,12})$") or empty
+other_income: regex("^(?:\d{0,8}\.\d{0,2}|\d{0,8})$") or empty
+fulltime_equivalent_fte: regex("^(?:\d{0,8}\.\d{0,2}|\d{0,8})$") or empty
+number_of_persons_in_the_crew_lt25years_old: positiveInteger range(1,*) or empty
+number_of_persons_in_the_crew_25to40years_old: positiveInteger range(1,*) or empty
+number_of_persons_in_the_crew_gt40years_old: positiveInteger range(1,*) or empty
+currency: if($fleet_segment/is("INA"),empty,any("US dollar","Euro","eur","EURO","euro","EUR","€","$"))
+comments: length(*,1024)
+

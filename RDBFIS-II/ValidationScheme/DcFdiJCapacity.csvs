@@ -1,0 +1,19 @@
+version 1.2
+@totalColumns 14
+@permitEmpty
+@ignoreColumnNameCase
+country: any("BEL","BGR","DNK","DEU","EST","IRL","GRC","ESP","FRA","HRV","ITA","CYP","LVA","LTU","MLT","NLD","POL","PRT","ROU","SVN","FIN","SWE","GBR","ENG","GBC","GBG","GBJ","IOM","NIR","SCO")
+year: positiveInteger range(2000,2023)
+vessel_length: any("VL0006","VL0010","VL0612","VL1012","VL1218","VL1824","VL2440","VL40XX","NK")
+fishing_tech: any("DFN","DRB","DTS","FPO","HOK","MGO","MGP","PG","PGO","PGP","PMP","PS","TM","TBB","INACTIVE","NO")
+supra_region: any("NAO","MBS","OFR")
+geo_indicator: any("NGI","NEU","IWE","P2","P3","IC","MA","GF","GP","MQ","MF","RE","YT","NK")
+//principal_sub_region could be ("51.5","34.3.1","51.7","34.3.3")  for supra_region=OFR and geo_indicator=IWE
+principal_sub_region: unique($country,$year,$vessel_length,$fishing_tech,$supra_region,$geo_indicator,$principal_sub_region) any("51.5","34.3.1","51.7","34.3.3","NK","GSA1","GSA2","GSA3","GSA4","GSA5","GSA6","GSA7","GSA8","GSA9","GSA10","GSA11.1","GSA11.2","GSA11","GSA12","GSA13","GSA14","GSA15","GSA16","GSA17","GSA18","GSA19","GSA20","GSA21","GSA22","GSA23","GSA24","GSA25","GSA26","GSA27","GSA28","GSA29","GSA30")
+tottrips: (positiveInteger range(0,*)) or is("NK")
+totkw: range(0,*) or is("NK")
+totgt: range(0,*) or is("NK")
+totves: (positiveInteger range(0,*)) or is("NK")
+avgage: range(0,*) or is("NK")
+avgloa: range(0,*) or is("NK")
+maxseadays: range(0,*) or is("NK")

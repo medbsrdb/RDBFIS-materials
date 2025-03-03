@@ -1,0 +1,47 @@
+version 1.2
+@totalColumns 43
+@permitEmpty
+@ignoreColumnNameCase
+reference_year: positiveInteger range(2013,2023)
+country: any("BEL","BGR","DNK","DEU","EST","IRL","GRC","ESP","FRA","HRV","ITA","CYP","LVA","LTU","MLT","NLD","POL","PRT","ROU","SVN","FIN","SWE","GBR","ENG","GBC","GBG","GBJ","IOM","NIR","SCO")
+registration_authority: notEmpty length(*,164)
+vessel_name: notEmpty length(*,164)
+national_registration_number: notEmpty length(*,32)
+vessel_registration_number: notEmpty unique($reference_year,$country,$vessel_name,$national_registration_number,$vessel_registration_number) length(*,32)
+international_radio_call_sign: notEmpty length(*,32)
+maritime_mobile_service_identity: notEmpty length(*,32)
+operational_status: any("0","1")
+registration_port: notEmpty length(*,164)
+gsa_1: any("1","2","3","4","5","6","7","8","9","NK","01","02","03","04","05","06","07","08","09","10","11.1","11.2","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30")
+gsa_2: any("1","2","3","4","5","6","7","8","9","NK","01","02","03","04","05","06","07","08","09","10","11.1","11.2","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30") or empty
+gsa_3: any("1","2","3","4","5","6","7","8","9","NK","01","02","03","04","05","06","07","08","09","10","11.1","11.2","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30") or empty
+fishing_activity_entry_year: positiveInteger range(1891,2023)
+licence_indicator: positiveInteger range(0,1)
+main_fishing_gear: any("FCN","FG","GN","HMD","HMX","HPM","LN","LNB","LNP","LNS","OT","PS1","PS2","PT","RG","SDN","SPR","SSC","TBN","TBS","TMS","PS","SUX","LA","SB","SV","SX","TBB","PTB","TB","PTM","TM","OTP","OTB","OTM","TX","OTT","DRH","DRM","DRB","GTN","GND","GNC","GNF","GEN","GNS","GTR","FAR","FWR","FYK","FPO","FPN","FSN","FIX","LLD","LHP","LX","LL","LHM","LLS","LTL","LVT","MDV","MDR","MEL","MIS","MHI","HAR","MPM","MPN","MSP","NK")
+secondary_fishing_gear: any("NO","FCN","FG","GN","HMD","HMX","HPM","LN","LNB","LNP","LNS","OT","PS1","PS2","PT","RG","SDN","SPR","SSC","TBN","TBS","TMS","PS","SUX","LA","SB","SV","SX","TBB","PTB","TB","PTM","TM","OTP","OTB","OTM","TX","OTT","DRH","DRM","DRB","GTN","GND","GNC","GNF","GEN","GNS","GTR","FAR","FWR","FYK","FPO","FPN","FSN","FIX","LLD","LHP","LX","LL","LHM","LLS","LTL","LVT","MDV","MDR","MEL","MIS","MHI","HAR","MPM","MPN","MSP","NK") or empty
+third_fishing_gear: any("NO","FCN","FG","GN","HMD","HMX","HPM","LN","LNB","LNP","LNS","OT","PS1","PS2","PT","RG","SDN","SPR","SSC","TBN","TBS","TMS","PS","SUX","LA","SB","SV","SX","TBB","PTB","TB","PTM","TM","OTP","OTB","OTM","TX","OTT","DRH","DRM","DRB","GTN","GND","GNC","GNF","GEN","GNS","GTR","FAR","FWR","FYK","FPO","FPN","FSN","FIX","LLD","LHP","LX","LL","LHM","LLS","LTL","LVT","MDV","MDR","MEL","MIS","MHI","HAR","MPM","MPN","MSP","NK") or empty
+overall_length: range(2,15)
+gross_tonnage: range(0,100)
+engine_power_kw: range(0,350)
+construction_year: switch(($reference_year/is("2013"),range(1860,2013)),($reference_year/is("2014"),range(1860,2014)),($reference_year/is("2015"),range(1860,2015)),($reference_year/is("2016"),range(1860,2016)),($reference_year/is("2017"),range(1860,2017)),($reference_year/is("2018"),range(1860,2018)),($reference_year/is("2019"),range(1860,2019)),($reference_year/is("2020"),range(1860,2020)),($reference_year/is("2021"),range(1860,2021)),($reference_year/is("2022"),range(1860,2022)),($reference_year/is("2023"),range(1860,2023))) or is("-999")
+vms_indicator: any("0","1")
+vessel_name_previous: length(*,164) 
+previous_flag_state: any("NK","BEL","BGR","DNK","DEU","EST","IRL","GRC","ESP","FRA","HRV","ITA","CYP","LVA","LTU","MLT","NLD","POL","PRT","ROU","SVN","FIN","SWE","GBR","ENG","GBC","GBG","GBJ","IOM","NIR","SCO") or empty
+previous_details: length(*,164)
+periodic_fishing_authorized_start: empty or (regex("^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0,1,2])\/(19|20)\d{2}") ends($reference_year))
+periodic_fishing_authorized_end: empty or (regex("^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0,1,2])\/(19|20)\d{2}") ends($reference_year))
+auxiliary_engine_power_kw: range(0,100) or empty
+hull_material: any("1","2","3","4","ML","NK","OT","PL","WD") or empty
+powered_motorized: any("0","1") or empty
+fish_hold_capacity: length(*,32)
+lights_for_fishing: any("0","1") or empty
+navigation_equipment: length(*,64)
+communication_equipment: length(*,64)
+fish_finder: length(*,64)
+deck_machinery: length(*,64)
+refrigeration_equipment: length(*,64)
+fish_processing_equipment: length(*,64)
+safety_equipment: length(*,64)
+period_authorized_trawl_start: if(($main_fishing_gear/any("OTB","OTM","OTP","OTT","PTB","PTM","TB","TBB","TM","TX") or $secondary_fishing_gear/any("OTB","OTM","OTP","OTT","PTB","PTM","TB","TBB","TM","TX") or $third_fishing_gear/any("OTB","OTM","OTP","OTT","PTB","PTM","TB","TBB","TM","TX")),(regex("^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0,1,2])\/(19|20)\d{2}") ends($reference_year)),empty)
+period_authorized_trawl_end: if(($main_fishing_gear/any("OTB","OTM","OTP","OTT","PTB","PTM","TB","TBB","TM","TX") or $secondary_fishing_gear/any("OTB","OTM","OTP","OTT","PTB","PTM","TB","TBB","TM","TX") or $third_fishing_gear/any("OTB","OTM","OTP","OTT","PTB","PTM","TB","TBB","TM","TX")),(regex("^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0,1,2])\/(19|20)\d{2}") ends($reference_year)),empty)
+comments: length(*,250)

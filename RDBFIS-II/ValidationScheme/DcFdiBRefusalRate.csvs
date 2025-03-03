@@ -1,0 +1,21 @@
+version 1.2
+@totalColumns 17
+@permitEmpty
+@ignoreColumnNameCase
+country: any("BEL","BGR","DNK","DEU","EST","IRL","GRC","ESP","FRA","HRV","ITA","CYP","LVA","LTU","MLT","NLD","POL","PRT","ROU","SVN","FIN","SWE","GBR","ENG","GBC","GBG","GBJ","IOM","NIR","SCO")
+year: positiveInteger range(2000,2023)
+sample_frame: length(*, 256) unique($country,$year,$sample_frame)
+refusal_rate: (range(0,1) and length(1,4)) or is("NK") or is("")
+coverage_rate: (range(0,1) and length(1,4)) or is("NK") or is("")
+nonresponse_rate: (range(0,1) and length(1,4)) or is("NK") or is("")
+vessels_fleet: (positiveInteger and range(0,*)) or is("NK") or is("")
+trips_fleet: (positiveInteger and range(0,*)) or is("NK") or is("")
+trips_sampled_onboard: (positiveInteger and range(0,*)) or is("NK") or is("")
+unique_vessels_sampled: (positiveInteger and range(0,*)) or is("NK") or is("")
+unique_vessels_contacted: (positiveInteger and range(0,*)) or is("NK") or is("")
+not_available: (positiveInteger and range(0,*)) or is("NK") or is("")
+no_contact_details: (positiveInteger and range(0,*)) or is("NK") or is("")
+no_answer: (positiveInteger and range(0,*)) or is("NK") or is("")
+observer_declined: (positiveInteger and range(0,*)) or is("NK") or is("")
+industry_declined: (positiveInteger and range(0,*)) or is("NK") or is("")
+tot_selections: (positiveInteger and range(0,*)) or is("NK") or is("")

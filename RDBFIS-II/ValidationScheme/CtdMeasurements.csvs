@@ -1,0 +1,17 @@
+version 1.2
+@totalColumns 12
+@permitEmpty
+@ignoreColumnNameCase
+// CTD measurements
+survey_name: any("MEDIAS")
+cd_country: any("BGR","GRC","ESP","FRA","HRV","ITA","CYP","MLT","ROU","SVN")
+gsa: any("GSA1","GSA2","GSA3","GSA4","GSA5","GSA6","GSA7","GSA8","GSA9","GSA10","GSA11.1","GSA11.2","GSA11","GSA12","GSA13","GSA14","GSA15","GSA16","GSA17","GSA18","GSA19","GSA20","GSA21","GSA22","GSA23","GSA24","GSA25","GSA26","GSA27","GSA28","GSA29","GSA30")
+cd_centre: any("CNR-FRIS","ARM","IEO/CSIC","CNR","CSIC","FRIS","HCMR","IFREMER","IO-BAS","IOR","JRC","NIMRD","FAO","ICES")
+cd_inst: switch(($cd_centre/is("CNR-FRIS"),is("IRBIM-FRIS")),($cd_centre/is("ARM"),is("ARM")),($cd_centre/is("IEO/CSIC"),is("COB")),($cd_centre/is("CNR"),any("IAS","IRBIM")),($cd_centre/is("CSIC"),any("CNIEO","ICM")),($cd_centre/is("FRIS"),is("FRIS")),($cd_centre/is("HCMR"),is("IMBRIW")),($cd_centre/is("IFREMER"),is("IFREMER")),($cd_centre/is("IO-BAS"),is("IO-BAS")),($cd_centre/is("IOR"),is("IOR")),($cd_centre/is("NIMRD"),is("NIMRD")))
+cd_cruise: length(*,14)
+cd_vessel: any("CDS","BIO","EUR","PHI","AEG","DAL","MIO")
+cast_id: length(*,14)
+cd_instrument: any("CTDSBE19","CTDSBE19p","CTDSBE25","CTDSBE9")
+cd_parameter: any("alt","cond","chla","dens","dep","flc","nitro","ph","press","sal","do","temp","Temperature","Pressure Temperature","Salinity","Conductivity","Density","Oxygen concentration","Oxygen saturation","Descent Rate","Fluorescence","Pressure","Turbidity","PAR/Irradiance")
+profile_depth:  regex("^(0\.[1-9]|[1-9][0-9]{0,2}(\.[0-9])?|1[0-4][0-9]{2}(\.[0-9])?|1500(\.0)?)$") // numbers ranging from 0.1 to 1500, with up to one decimal place (step of 0.1)
+val: range(0,*)

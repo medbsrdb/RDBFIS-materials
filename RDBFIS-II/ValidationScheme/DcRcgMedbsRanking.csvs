@@ -1,0 +1,12 @@
+version 1.2
+@totalColumns 8
+@permitEmpty
+@ignoreColumnNameCase
+country: any("BEL","BGR","DNK","DEU","EST","IRL","GRC","ESP","FRA","HRV","ITA","CYP","LVA","LTU","MLT","NLD","POL","PRT","ROU","SVN","FIN","SWE","GBR","ENG","GBC","GBG","GBJ","IOM","NIR","SCO")
+subregion_cd: any("GSA1","GSA2","GSA3","GSA4","GSA5","GSA6","GSA7","GSA8","GSA9","GSA10","GSA11.1","GSA11.2","GSA11","GSA12","GSA13","GSA14","GSA15","GSA16","GSA17","GSA18","GSA19","GSA20","GSA21","GSA22","GSA23","GSA24","GSA25","GSA26","GSA27","GSA28","GSA29","GSA30")
+year: positiveInteger
+fishing_activity_l6: any("DRB_MOL_0_0_0","FPN_LPF_0_0_0","FPO_DEF_0_0_0","FYK_CAT_0_0_0","FYK_DEF_0_0_0","GND_DEF_0_0_0","GND_SPF_0_0_0","GNS_DEF_360-400_0_0","GNS_DEF_>=16_0_0","GNS_SLP_>=16_0_0","GTR_DEF_>=16_0_0","LA_SLP_14_0_0","LHP-LHM_FIF_0_0_0","LHP-LHM_CEP_0_0_0 ","LLD_LPF_0_0_0 ","LLS_DEF_0_0_0","LTL_LPF_0_0_0","OTB_DEF_>=40_0_0","OTB_DWS_>=40_0_0","OTB_MDD_>=40_0_0","OTM_MPD_>=13_19_0_0 ","OTM_MPD_>=20_0_0","PS_LPF_14_0_0 ","PS_SPF_>=14_0_0","PTM_SPF_>=20_0_0 ","SB-SV_DEF_0_0_0 ","TBB_DEF_0_0_0 ","MISC","OTH","NK")
+misc_oth: length(*,64)
+landings: range(0,*)
+fe_days_sea: range(0,*)
+value_euro: range(0,*)

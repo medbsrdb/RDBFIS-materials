@@ -1,0 +1,11 @@
+version 1.2
+@totalColumns 7
+@permitEmpty
+@ignoreColumnNameCase
+year: positiveInteger range(1994,2025)
+quarter: positiveInteger range(1,4)
+FPI: range(0,1)
+gear_type: any("DRB","HMD","DRH","FPN","FPO","FYK","GEF","GNC","GND","GNS","GTN","GTR","HMD","LA","LHM","LHP","LLD","LLS","LNB","LNS","LTL","OTB","OTM","PTM","OTT","PS","PTB","SB","SV","SDN","SPR","SSC","TBB","NO","NK")
+vessel_length: any("VL0006","VL0010","VL0612","VL1012","VL1218","VL1824","VL2440","VL40XX","VL40xx")
+LON: range(-5.5,36)
+LAT: range(30,48)
