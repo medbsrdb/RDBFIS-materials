@@ -1,3 +1,4 @@
+# Authors: Maurizio Gibin, Maciej Adamowicz, and Maksims Kovsars
 Spatial checks component: Source code
 library(plumber)
 library(dplyr)
