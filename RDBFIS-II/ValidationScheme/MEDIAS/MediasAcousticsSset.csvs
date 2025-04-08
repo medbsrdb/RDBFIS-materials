@@ -1,0 +1,29 @@
+version 1.2
+@totalColumns 24
+@permitEmpty
+@ignoreColumnNameCase
+// acoustics_sset (calibration)
+survey_name: any("MEDIAS")
+cd_country: any("BGR","GRC","ESP","FRA","HRV","ITA","CYP","MLT","ROU","SVN")
+gsa: any("GSA1","GSA2","GSA3","GSA4","GSA5","GSA6","GSA7","GSA8","GSA9","GSA10","GSA11.1","GSA11.2","GSA11","GSA12","GSA13","GSA14","GSA15","GSA16","GSA17","GSA18","GSA19","GSA20","GSA21","GSA22","GSA23","GSA24","GSA25","GSA26","GSA27","GSA28","GSA29","GSA30")
+survey_area: any("AdrSea-HRV-IOR","AdrSea-ITA-IRBIM","AdrSea-SVN-FRIS","AegSea-GRC-IMBRIW","BSea-BGR-IO-BAS","BSea-ROU-NIMRD","EIonSea-GRC-IMBRIW","GLion-FRA-IFREMER","IberCoast-ESP-CNIEO","SardEast-ITA-IAS","SicChan-ITA-IAS","TyrLigSea-ITA-IAS")
+cd_centre: any("CNR-FRIS","IEO/CSIC","CNR","CSIC","FRIS","HCMR","IFREMER","IO-BAS","IOR","JRC","NIMRD","FAO","ICES")
+cd_inst: switch(($cd_centre/is("CNR-FRIS"),is("IRBIM-FRIS")),($cd_centre/is("IEO/CSIC"),is("COB")),($cd_centre/is("CNR"),any("IAS","IRBIM")),($cd_centre/is("CSIC"),any("CNIEO","ICM")),($cd_centre/is("FRIS"),is("FRIS")),($cd_centre/is("HCMR"),is("IMBRIW")),($cd_centre/is("IFREMER"),is("IFREMER")),($cd_centre/is("IO-BAS"),is("IO-BAS")),($cd_centre/is("IOR"),is("IOR")),($cd_centre/is("NIMRD"),is("NIMRD")))
+cd_vessel: any("BIO","EUR","PHI","AEG","DAL","MIO")
+sampling_year: positiveInteger range(2009,2024) 
+cd_cruise: regex("^.{1,14}$") // non-empty string of up to 14 characters
+calibration_id: positiveInteger range(1,10)
+calibration_date: regex("^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0,1,2])\/(19|20)\d{2}") ends($sampling_year)
+frequency: any("38","70","120","200")
+sound_speed: regex("^(1400|14[0-9]{2}|15[0-9]{2}|1600)(\.\d{1,2})?$") // real numbers between 1400 and 1600, inclusive, with at maximum 2 digits after the decimal point, range(1400,1600)
+pulse_duration: regex("^(0|1|2)(\.\d{1,3})?$") // real numbers between 0 and 2, inclusive, with at maximum 3 digits after the decimal point, range(0,2)
+absorption_coefficient: regex("^(0(\.\d{1,6})?|1(\.0{1,6})?)$") // to accept real numbers between 0 and 1, inclusive, with at maximum 6 digits after the decimal point
+rms_beam: regex("^(0|1)(\.\d{1,3})?$") // real numbers between 0 and 1, inclusive, with at maximum 3 digits after the decimal point, range(0,1)
+adjusted_gain: regex("^(1|[1-9]\d{0,3}|9999)(\.\d{1,2})?$") // real numbers between 1 and 9999, inclusive, with at maximum 2 digits after the decimal point, range(1,9999)
+sa_corr: regex("^(-2|-1|-0|0|1|2)(\.\d{1,2})?$") // real numbers between -2 and 2, inclusive, with at maximum 2 digits after the decimal point
+beamwidth_athwart: regex("^(5|6|7|8|9|10|11|12)(\.\d{1,2})?$") // real numbers between 5 and 12, inclusive, with at maximum 2 digits after the decimal point, range(5,12)
+beamwidth_along: regex("^(5|6|7|8|9|10|11|12)(\.\d{1,2})?$") // real numbers between 5 and 12, inclusive, with at maximum 2 digits after the decimal point, range(5,12)
+athwart_offset: regex("^(-1|0|1)(\.\d{1,2})?$|^-0(\.\d{1,2})?$") // real numbers between -1 and 1, inclusive, with at maximum 2 digits after the decimal point, range(-1,1)
+along_offset: regex("^(-1(\.0{1,2})?|0(\.\d{1,2})?|1(\.0{1,2})?|-(0\.\d{1,2}))$") //real numbers between -1 and 1, inclusive, with at maximum 2 digits after the decimal point
+ts_of_sphere: regex("^(-70|-6[0-9]|-5[0-9]|-4[0-9]|-3[0-9]|-2[0-9]|-20)(\.\d{1,2})?$") // real numbers between -70 and -20, inclusive, with at maximum 2 digits after the decimal point
+bottom_depth: positiveInteger range(5,200)

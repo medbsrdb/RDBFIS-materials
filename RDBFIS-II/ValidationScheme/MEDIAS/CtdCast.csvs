@@ -1,0 +1,27 @@
+version 1.2
+@totalColumns 22
+@permitEmpty
+@ignoreColumnNameCase
+// CTD cast
+survey_name: any("MEDIAS")
+cd_country: any("BGR","GRC","ESP","FRA","HRV","ITA","CYP","MLT","ROU","SVN")
+gsa: any("GSA1","GSA2","GSA3","GSA4","GSA5","GSA6","GSA7","GSA8","GSA9","GSA10","GSA11.1","GSA11.2","GSA11","GSA12","GSA13","GSA14","GSA15","GSA16","GSA17","GSA18","GSA19","GSA20","GSA21","GSA22","GSA23","GSA24","GSA25","GSA26","GSA27","GSA28","GSA29","GSA30")
+cd_centre: any("CNR-FRIS","ARM","IEO/CSIC","CNR","CSIC","FRIS","HCMR","IFREMER","IO-BAS","IOR","JRC","NIMRD","FAO","ICES")
+cd_inst: switch(($cd_centre/is("CNR-FRIS"),is("IRBIM-FRIS")),($cd_centre/is("ARM"),is("ARM")),($cd_centre/is("IEO/CSIC"),is("COB")),($cd_centre/is("CNR"),any("IAS","IRBIM")),($cd_centre/is("CSIC"),any("CNIEO","ICM")),($cd_centre/is("FRIS"),is("FRIS")),($cd_centre/is("HCMR"),is("IMBRIW")),($cd_centre/is("IFREMER"),is("IFREMER")),($cd_centre/is("IO-BAS"),is("IO-BAS")),($cd_centre/is("IOR"),is("IOR")),($cd_centre/is("NIMRD"),is("NIMRD")))
+cd_cruise: regex("^.{1,14}$") // non-empty string of up to 14 characters
+cd_vessel: any("CDS","BIO","EUR","PHI","AEG","DAL","MIO")
+cast_id: regex("^.{1,14}$") // non-empty string of up to 14 characters
+cd_instrument: any("CTDSBE19","CTDSBE19p","CTDSBE25","CTDSBE9")
+latitude: regex("^(34|3[5-9]|4[0-4]|45(\.7[0-9])?)(\.\d{1,4})?$") //real numbers between 34 and 45.70, inclusive, with at maximum 4 digits after the decimal point
+longitude: regex("^(-5\.50|[0-9](\.\d{1,4})?|[1-9]\d(\.\d{1,4})?|3[0-4](\.\d{1,4})?|35)(\.\d{1,4})?$") //real numbers between -5.50 and 35, inclusive, with at maximum 4 digits after the decimal point
+cast_date: regex("^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0,1,2])\/(19|20)\d{2}")
+cast_time: regex("^([01]\d|2[0-3]):([0-5]\d)(:[0-5]\d)?$")
+max_depth: regex("^(?:-1|[1-9][0-9]|[1-9][0-9]{2}|1[0-4][0-9]{2}|1500)$") // Integers in range(10,1500) or -1
+haul_depth: positiveInteger range(10,1500)
+cd_bottom_ql: any("Br","Cb","Co","Cy","G","Kts","M","NK","P","ReBn","Rk","S","SaMu","Sh","Si","St","SU","SWT","TMW","Tr","TS","Wd","Wd2","WdT","WS") or empty
+roughness: regex("^(-1|([1-9][0-9]*|0)?(\.[0-9]{1,2})?)$")  // match any numeric value with no more than two decimal places that is greater than zero or exactly -1
+slope: regex("^(-1|([0-9]|[1-8][0-9]|90)(\.[0-9]{1,2})?)$") // values in range(0,90) or -1
+cd_weather: any("1","2","3","4","5","6","7","8","9","NK") or empty
+cd_sea: any("1","2","3","4","5","6","7","8","9","10","11","12","NK") or empty
+cd_wind: any("E","N","NE","NEE","NK","NNE","NNW","NW","NWW","S","SE","SEE","SSE","SSW","SW","SWW","W") or empty
+transect_id: regex("^(-1|[1-9][0-9]{0,2})$") // positive integer range(1,999) or -1
