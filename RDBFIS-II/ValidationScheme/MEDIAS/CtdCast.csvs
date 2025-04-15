@@ -21,7 +21,7 @@ haul_depth: positiveInteger range(10,1500)
 cd_bottom_ql: any("Br","Cb","Co","Cy","G","Kts","M","NK","P","ReBn","Rk","S","SaMu","Sh","Si","St","SU","SWT","TMW","Tr","TS","Wd","Wd2","WdT","WS") or empty
 roughness: regex("^(-1|([1-9][0-9]*|0)?(\.[0-9]{1,2})?)$")  // match any numeric value with no more than two decimal places that is greater than zero or exactly -1
 slope: regex("^(-1|([0-9]|[1-8][0-9]|90)(\.[0-9]{1,2})?)$") // values in range(0,90) or -1
-cd_weather: any("1","2","3","4","5","6","7","8","9","NK") or empty
-cd_sea: any("1","2","3","4","5","6","7","8","9","10","11","12","NK") or empty
-cd_wind: any("E","N","NE","NEE","NK","NNE","NNW","NW","NWW","S","SE","SEE","SSE","SSW","SW","SWW","W") or empty
+cd_weather: any("1","2","3","4","5","6","7","8","9","NK")
+cd_sea: any("1","2","3","4","5","6","7","8","9","10","11","12","NK")
+cd_wind: any("E","N","NE","NEE","NK","NNE","NNW","NW","NWW","S","SE","SEE","SSE","SSW","SW","SWW","W")
 transect_id: regex("^(-1|[1-9][0-9]{0,2})$") // positive integer range(1,999) or -1
