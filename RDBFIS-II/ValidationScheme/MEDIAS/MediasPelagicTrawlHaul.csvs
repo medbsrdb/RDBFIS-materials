@@ -26,6 +26,6 @@ time_end: regex("^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[0-2])/[0-9]{4} ([01][0-9]|2
 duration: positiveInteger range(10,180)
 average_fishing_speed: regex("^(1\.[5-9]|[2-6](\.\d{1,2})?|7)(\.\d{1,2})?$") //Real numbers between 1.5 and 7 (inclusive) with at maximum 2 digits after the decimal point
 net_average_depth: regex("^(-1|5|[6-9]|[1-7]\d{1,2}|8[0-9]|9[0-9]|800)(\.\d{1})?$") //Real numbers between 5 and 800 (inclusive) with at maximum 1 digit after the decimal point or -1 (the following regex cannot accept the range 80-89 regex("^(-1|5|[6-9]|[1-7]\d{1,2}|800)(\.\d{1})?$"), similar ^(-1|5|[6-7]|8[0-9]|[1-7]\d{1,2}|800)(\.\d{1})?$ accept 80-89 but not 90-99)
-net_horizontal_opening: regex("^(-1|5|[6-9]|[1-2]\d|30)(\.\d{1,2})?$") //Real numbers between 5 and 30 (inclusive) with at maximum 2 digits after the decimal point or -1
+net_horizontal_opening: regex("^(-1|(?:5(?:\.\d{1,2})?|[6-9](?:\.\d{1,2})?|[1-2]\d(?:\.\d{1,2})?|3[0-4](?:\.\d{1,2})?|35(?:\.0{1,2})?))$") //Real numbers between 5 and 35 (inclusive) with at maximum 2 digits after the decimal point or -1
 net_vertical_opening: regex("^(-1|1|[2-9]|1[0-9]|2[0-5])(\.\d{1,2})?$") //Real numbers between 1 and 25 (inclusive) with at maximum 2 digits after the decimal point or -1
 calibration_id: regex("^(-1|[1-9][0-9]{0,2})$") // positive integer range(1,999) or -1
