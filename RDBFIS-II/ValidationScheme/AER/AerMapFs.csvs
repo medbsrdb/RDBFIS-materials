@@ -1,0 +1,22 @@
+version 1.2
+@totalColumns 18
+@permitEmpty
+@ignoreColumnNameCase
+country: any("BEL","BGR","DNK","DEU","EST","IRL","GRC","ESP","FRA","HRV","ITA","CYP","LVA","LTU","MLT","NLD","POL","PRT","ROU","SVN","FIN","SWE","GBR","ENG","GBC","GBG","GBJ","IOM","NIR","SCO")
+acronym: any("assets","debts","gtseadays","hrworked","kwseadays","maxseadays","subinvest","totcrewwage","totdepcost","totdeprep","totdirsub","totenercons","totenercost","totfishdays","totgtfishdays","totinvest","totjob","totkwfishdays","totlandginc","totnatfte","totnovarcost","tototherinc","totrepcost","totrights","totrightscost","totrightsinc","totseadays","tottrips","totunpaidlab","totvarcost","unpaidemp")
+value: range(0,*) or empty
+unit: any("GTday","kWday","day","hour","litre","number","euro")
+year: positiveInteger range(2008,2023)
+supra_region: any("MBS","NAO","OFR","BS","NA","NS","NONE","AREA37","AREA27")
+fishing_tech: any("DFN","DRB","DTS","FPO","HOK","INACTIVE","MGO","MGP","NO","PG","PGO","PGP","PMP","PS","TBB","TM")
+vessel_length: any("VL0006","VL0612","VL0010","VL1012","VL1218","VL1824","VL2440","VL40XX","NK")
+geo_indicator: any("NGI","NEU","IWE","P2","P3","IC","MA","GF","GP","MQ","MF","RE","YT","NK")
+gear: any("FAD","HAR","MIS","DRB","DRH","FPN","FPO","FYK","GEF","GNC","GND","GNS","GTN","GTR","HMD","LA","LHM","LHP","LLD","LLS","LNB","LNS","LTL","NA","NK","NO","OTB","OTM","OTT","PS","PTB","PTM","SB","SDN","SPR","SSC","SV","TBB")
+fishery: any("NAFO","NEAFC","ICCAT","IOTC","CECAF","WECAFC","SFPA","SFPA_NA","SFPA_IO","SFPA_AO","SFPA_PO","PELAG","DEMER","NK")
+activity: any("L","A","NU") or empty
+comments: length(*,256)
+sampling_strategy: switch(($year/range(2008,2015),any("C","PSS","NSS","NR")),any("C","PSS","NSS"))
+achieved_sample_rate: range(0, 100) or empty
+coefficient_of_variation: range(0, 1) or empty
+response_rate: range(0, 100) or empty
+data_source: length(*,256)

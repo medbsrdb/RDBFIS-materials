@@ -1,0 +1,27 @@
+version 1.2
+@totalColumns 23
+@permitEmpty
+@ignoreColumnNameCase
+country: any("BEL","BGR","DNK","DEU","EST","IRL","GRC","ESP","FRA","HRV","ITA","CYP","LVA","LTU","MLT","NLD","POL","PRT","ROU","SVN","FIN","SWE","GBR","ENG","GBC","GBG","GBJ","IOM","NIR","SCO")
+acronym: any("socemploy","socfte","socunlab")
+value: range(0,*)
+unit:
+year: positiveInteger range(2008,2023)
+supra_region: any("MBS","NAO","OFR","BS","NA","NS","NONE","AREA37","AREA27")
+fishing_tech: any("DFN","DRB","DTS","FPO","HOK","INACTIVE","MGO","MGP","NO","PG","PGO","PGP","PMP","PS","TBB","TM")
+vessel_length: any("VL0006","VL0612","VL0010","VL1012","VL1218","VL1824","VL2440","VL40XX","NK")
+geo_indicator: any("NGI","NEU","IWE","P2","P3","IC","MA","GF","GP","MQ","MF","RE","YT","NK")
+gear: any("FAD","HAR","MIS","DRB","DRH","FPN","FPO","FYK","GEF","GNC","GND","GNS","GTN","GTR","HMD","LA","LHM","LHP","LLD","LLS","LNB","LNS","LTL","NA","NK","NO","OTB","OTM","OTT","PS","PTB","PTM","SB","SDN","SPR","SSC","SV","TBB")
+fishery: any("NAFO","NEAFC","ICCAT","IOTC","CECAF","WECAFC","SFPA","SFPA_NA","SFPA_IO","SFPA_AO","SFPA_PO","PELAG","DEMER","NK")
+fishing_activity: any("DWF","LSF","SCF")
+fisher_gender: any("Female","Male","Unknown")
+age: positiveInteger range(16,99)
+education: any("High","Low","Medium","Unknown")
+nationality: any("EEA","EU","National","non-EU/EEA","Unknown")
+employment_status: any("Employee","Employee full","Employee part","Owner","Unknown")
+population_ves: positiveInteger range(1,*)
+responses_ves: range(0,100)
+population_fish: range(0,*)
+responses_fish: range(0,100)
+sampling_strategy: switch(($year/range(2008,2015),any("C","PSS","NSS","NR")),any("C","PSS","NSS"))
+comments: length(*,256)
