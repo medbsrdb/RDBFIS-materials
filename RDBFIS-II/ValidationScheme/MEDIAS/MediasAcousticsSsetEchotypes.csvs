@@ -10,7 +10,7 @@ survey_area: any("AdrSea-HRV-IOR","AdrSea-ITA-IRBIM","AdrSea-SVN-FRIS","AegSea-G
 cd_centre: any("CNR-FRIS","IEO/CSIC","CNR","CSIC","FRIS","HCMR","IFREMER","IO-BAS","IOR","JRC","NIMRD","FAO","ICES")
 cd_inst: switch(($cd_centre/is("CNR-FRIS"),is("IRBIM-FRIS")),($cd_centre/is("IEO/CSIC"),is("COB")),($cd_centre/is("CNR"),any("IAS","IRBIM")),($cd_centre/is("CSIC"),any("CNIEO","ICM")),($cd_centre/is("FRIS"),is("FRIS")),($cd_centre/is("HCMR"),is("IMBRIW")),($cd_centre/is("IFREMER"),is("IFREMER")),($cd_centre/is("IO-BAS"),is("IO-BAS")),($cd_centre/is("IOR"),is("IOR")),($cd_centre/is("NIMRD"),is("NIMRD")))
 cd_vessel: any("BIO","EUR","PHI","AEG","DAL","MIO")
-sampling_year: positiveInteger range(2009,2024)
+sampling_year: positiveInteger range(2003,2024)
 cd_cruise: regex("^.{1,14}$") // non-empty string of up to 14 characters
 echo_type: any("E1","E2","E3","E4","E5","E6","E7","E8","E9","E10","E11","E12","E13","E14","E15","E16","E17","E18","E19","E20")
 echo_type_description: length(*,100)

@@ -11,7 +11,7 @@ geographical_stratum: any("Gulf of Lion","Central Adriatic Sea","North Adriatic 
 cd_centre: any("CNR-FRIS","IEO/CSIC","CNR","CSIC","FRIS","HCMR","IFREMER","IO-BAS","IOR","JRC","NIMRD","FAO","ICES")
 cd_inst: switch(($cd_centre/is("CNR-FRIS"),is("IRBIM-FRIS")),($cd_centre/is("IEO/CSIC"),is("COB")),($cd_centre/is("CNR"),any("IAS","IRBIM")),($cd_centre/is("CSIC"),any("CNIEO","ICM")),($cd_centre/is("FRIS"),is("FRIS")),($cd_centre/is("HCMR"),is("IMBRIW")),($cd_centre/is("IFREMER"),is("IFREMER")),($cd_centre/is("IO-BAS"),is("IO-BAS")),($cd_centre/is("IOR"),is("IOR")),($cd_centre/is("NIMRD"),is("NIMRD")))
 cd_vessel: any("BIO","EUR","PHI","AEG","DAL","MIO")
-sampling_year: positiveInteger range(2009,2024)
+sampling_year: positiveInteger range(2003,2024)
 cd_cruise: regex("^.{1,14}$") // non-empty string of up to 14 characters
 gear: any("P1MO4","4FF176","4PM159","ATGM47-43","OTM")
 haul_id: regex("^.{1,14}$") // non-empty string of up to 14 characters
