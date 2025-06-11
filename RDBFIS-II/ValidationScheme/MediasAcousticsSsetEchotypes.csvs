@@ -1,5 +1,5 @@
 version 1.2
-@totalColumns 13
+@totalColumns 11
 @permitEmpty
 @ignoreColumnNameCase
 // acoustics_sset_echotypes
@@ -7,12 +7,10 @@ survey_name: any("MEDIAS")
 cd_country: any("BGR","GRC","ESP","FRA","HRV","ITA","CYP","MLT","ROU","SVN")
 gsa: any("GSA1","GSA2","GSA3","GSA4","GSA5","GSA6","GSA7","GSA8","GSA9","GSA10","GSA11.1","GSA11.2","GSA11","GSA12","GSA13","GSA14","GSA15","GSA16","GSA17","GSA18","GSA19","GSA20","GSA21","GSA22","GSA23","GSA24","GSA25","GSA26","GSA27","GSA28","GSA29","GSA30")
 survey_area: any("AdrSea-HRV-IOR","AdrSea-ITA-IRBIM","AdrSea-SVN-FRIS","AegSea-GRC-IMBRIW","BSea-BGR-IO-BAS","BSea-ROU-NIMRD","EIonSea-GRC-IMBRIW","GLion-FRA-IFREMER","IberCoast-ESP-CNIEO","SardEast-ITA-IAS","SicChan-ITA-IAS","TyrLigSea-ITA-IAS")
-geographical_stratum: length(*,32)
 cd_centre: any("CNR-FRIS","IEO/CSIC","CNR","CSIC","FRIS","HCMR","IFREMER","IO-BAS","IOR","JRC","NIMRD","FAO","ICES")
 cd_inst: switch(($cd_centre/is("CNR-FRIS"),is("IRBIM-FRIS")),($cd_centre/is("IEO/CSIC"),is("COB")),($cd_centre/is("CNR"),any("IAS","IRBIM")),($cd_centre/is("CSIC"),any("CNIEO","ICM")),($cd_centre/is("FRIS"),is("FRIS")),($cd_centre/is("HCMR"),is("IMBRIW")),($cd_centre/is("IFREMER"),is("IFREMER")),($cd_centre/is("IO-BAS"),is("IO-BAS")),($cd_centre/is("IOR"),is("IOR")),($cd_centre/is("NIMRD"),is("NIMRD")))
 cd_vessel: any("BIO","EUR","PHI","AEG","DAL","MIO")
-sampling_year: positiveInteger range(2009,2024)
-cd_cruise: length(*,14)
-calibration_id: positiveInteger range(1,10)
+sampling_year: positiveInteger range(2003,2024)
+cd_cruise: regex("^.{1,14}$") // non-empty string of up to 14 characters
 echo_type: any("E1","E2","E3","E4","E5","E6","E7","E8","E9","E10","E11","E12","E13","E14","E15","E16","E17","E18","E19","E20")
 echo_type_description: length(*,100)

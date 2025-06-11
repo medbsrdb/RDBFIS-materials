@@ -10,16 +10,16 @@ survey_area: any("AdrSea-HRV-IOR","AdrSea-ITA-IRBIM","AdrSea-SVN-FRIS","AegSea-G
 cd_centre: any("CNR-FRIS","IEO/CSIC","CNR","CSIC","FRIS","HCMR","IFREMER","IO-BAS","IOR","JRC","NIMRD","FAO","ICES")
 cd_inst: switch(($cd_centre/is("CNR-FRIS"),is("IRBIM-FRIS")),($cd_centre/is("IEO/CSIC"),is("COB")),($cd_centre/is("CNR"),any("IAS","IRBIM")),($cd_centre/is("CSIC"),any("CNIEO","ICM")),($cd_centre/is("FRIS"),is("FRIS")),($cd_centre/is("HCMR"),is("IMBRIW")),($cd_centre/is("IFREMER"),is("IFREMER")),($cd_centre/is("IO-BAS"),is("IO-BAS")),($cd_centre/is("IOR"),is("IOR")),($cd_centre/is("NIMRD"),is("NIMRD")))
 cd_vessel: any("BIO","EUR","PHI","AEG","DAL","MIO")
-sampling_year: positiveInteger range(2009,2024)
-cd_cruise: length(*,14)
+sampling_year: positiveInteger range(2003,2024)
+cd_cruise: regex("^.{1,14}$") // non-empty string of up to 14 characters
 echo_sounder_type: any("BioSonics DT-X","ES38B","Simrad EK500","Simrad EK60","Simrad EK80","Simrad EK60, EK80")
 transects_design: any("mixed","parallel","zig zag")
 inter_transect_distance: regex("^-1|([5-9]|1[0-2])$") //positiveInteger range(5,12) or -1 if not known
 edsu: regex("^(0(?:\.\d{1,2})?|[1-4](?:\.\d{1,2})?|5(?:\.0{1,2})?)$") // real numbers between 0.1 and 5, inclusive, allow up (but not exactly) 2 digits after the decimal point
 covered_area_size: regex("^(100|[1-9]\d{2,4}|99999)(\.\d{1,2})?$") // real numbers between 100 and 99,999 with at maximum 2 digits after the decimal point: in ΝΜ2
 effectively_covered_area_size: regex("^(100|[1-9]\d{2,4}|99999)(\.\d{1,2})?$") // real numbers between 100 and 99,999 with at maximum 2 digits after the decimal point: in ΝΜ2
-n_hauls: regex("^(?:-1|[1-9][0-9]{0,2})$") //positiveInteger range(1,999) or -1; auto filled
-n_ctds: regex("^(?:-1|[1-9][0-9]{0,2})$") //positiveInteger range(1,999) or -1; auto filled
+n_hauls: regex("^(?:-1|[1-9][0-9]{0,2})$") //positiveInteger range(1,999) or -1; auto filled by the consistency process
+n_ctds: regex("^(?:-1|[1-9][0-9]{0,2})$") //positiveInteger range(1,999) or -1; auto filled by the consistency process
 echo_sounding_depth_min: regex("^(?:-1|[1-9][0-9]?|[1-9][0-9]{2}|1500)$") // positiveInteger range(10,1500) or -1 , auto filled medias_acoustics_sset_nasc (Nautical Area Scattering Coefficient)
 echo_sounding_depth_max: regex("^(?:-1|[1-9][0-9]?|[1-9][0-9]{2}|1500)$") // positiveInteger range(10,1500) or -1 , auto filled from medias_acoustics_sset_nasc (Nautical Area Scattering Coefficient)
 vessel_speed: regex("^(5|6|7|8|9|10)(\.\d{1,2})?$") // real numbers between 5 and 10, inclusive, with at maximum 2 digits after the decimal point
