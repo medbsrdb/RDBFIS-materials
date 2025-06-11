@@ -8,9 +8,9 @@ cd_country: any("BGR","GRC","ESP","FRA","HRV","ITA","CYP","MLT","ROU","SVN")
 gsa: any("GSA1","GSA2","GSA3","GSA4","GSA5","GSA6","GSA7","GSA8","GSA9","GSA10","GSA11.1","GSA11.2","GSA11","GSA12","GSA13","GSA14","GSA15","GSA16","GSA17","GSA18","GSA19","GSA20","GSA21","GSA22","GSA23","GSA24","GSA25","GSA26","GSA27","GSA28","GSA29","GSA30")
 cd_centre: any("CNR-FRIS","ARM","IEO/CSIC","CNR","CSIC","FRIS","HCMR","IFREMER","IO-BAS","IOR","JRC","NIMRD","FAO","ICES")
 cd_inst: switch(($cd_centre/is("CNR-FRIS"),is("IRBIM-FRIS")),($cd_centre/is("ARM"),is("ARM")),($cd_centre/is("IEO/CSIC"),is("COB")),($cd_centre/is("CNR"),any("IAS","IRBIM")),($cd_centre/is("CSIC"),any("CNIEO","ICM")),($cd_centre/is("FRIS"),is("FRIS")),($cd_centre/is("HCMR"),is("IMBRIW")),($cd_centre/is("IFREMER"),is("IFREMER")),($cd_centre/is("IO-BAS"),is("IO-BAS")),($cd_centre/is("IOR"),is("IOR")),($cd_centre/is("NIMRD"),is("NIMRD")))
-cd_cruise: length(*,14)
+cd_cruise: regex("^.{1,14}$") // non-empty string of up to 14 characters
 cd_vessel: any("CDS","BIO","EUR","PHI","AEG","DAL","MIO")
-cast_id: length(*,14)
+cast_id: regex("^.{1,14}$") // non-empty string of up to 14 characters
 cd_instrument: any("CTDSBE19","CTDSBE19p","CTDSBE25","CTDSBE9")
 latitude: regex("^(34|3[5-9]|4[0-4]|45(\.7[0-9])?)(\.\d{1,4})?$") //real numbers between 34 and 45.70, inclusive, with at maximum 4 digits after the decimal point
 longitude: regex("^(-5\.50|[0-9](\.\d{1,4})?|[1-9]\d(\.\d{1,4})?|3[0-4](\.\d{1,4})?|35)(\.\d{1,4})?$") //real numbers between -5.50 and 35, inclusive, with at maximum 4 digits after the decimal point
