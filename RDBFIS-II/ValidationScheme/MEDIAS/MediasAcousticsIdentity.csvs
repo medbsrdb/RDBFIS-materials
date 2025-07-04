@@ -14,7 +14,7 @@ sampling_year: positiveInteger range(2003,2024)
 cd_cruise: regex("^.{1,14}$") // non-empty string of up to 14 characters
 echo_sounder_type: any("BioSonics DT-X","ES38B","Simrad EK500","Simrad EK60","Simrad EK80","Simrad EK60, EK80")
 transects_design: any("mixed","parallel","zig zag")
-inter_transect_distance: regex("^-1|([5-9]|1[0-2])$") //positiveInteger range(5,12) or -1 if not known
+inter_transect_distance: regex("^-1$|^(4|5|6|7|8|9|10|11|12)$") //positiveInteger range(4,12) or -1 if not known
 edsu: regex("^(0(?:\.\d{1,2})?|[1-4](?:\.\d{1,2})?|5(?:\.0{1,2})?)$") // real numbers between 0.1 and 5, inclusive, allow up (but not exactly) 2 digits after the decimal point
 covered_area_size: regex("^(100|[1-9]\d{2,4}|99999)(\.\d{1,2})?$") // real numbers between 100 and 99,999 with at maximum 2 digits after the decimal point: in ΝΜ2
 effectively_covered_area_size: regex("^(100|[1-9]\d{2,4}|99999)(\.\d{1,2})?$") // real numbers between 100 and 99,999 with at maximum 2 digits after the decimal point: in ΝΜ2
