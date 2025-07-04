@@ -15,7 +15,7 @@ sampling_year: positiveInteger range(2003,2024)
 cd_cruise: regex("^.{1,14}$") // non-empty string of up to 14 characters
 calibration_id: positiveInteger range(1,10)
 transect: positiveInteger range(1,999)
-edsu_id: positiveInteger range(1,2000)
+edsu_id: positiveInteger range(1,5000)
 trawl_haul_reference: regex("^.{0,128}$") // string that is either empty or up to 128 characters
 echo_type: any("E1","E2","E3","E4","E5","E6","E7","E8","E9","E10","E11","E12","E13","E14","E15","E16","E17","E18","E19","E20")
 species: any("BVQ","ATB", "WHB","ANE","PIL","JAX","HMM","JAA","HOM","BOG","SAA","SAE","VMA","MAC","MAZ","SPC","PIC","SPR")
