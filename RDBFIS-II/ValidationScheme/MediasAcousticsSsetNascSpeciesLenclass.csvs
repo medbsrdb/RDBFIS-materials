@@ -15,7 +15,7 @@ sampling_year: positiveInteger range(2003,2024)
 cd_cruise: regex("^.{1,14}$") // non-empty string of up to 14 characters
 calibration_id: positiveInteger range(1,10)
 transect: positiveInteger range(1,999)
-edsu_id: positiveInteger range(1,2000)
+edsu_id: positiveInteger range(1,5000)
 species: any("BVQ","ATB", "WHB","ANE","PIL","JAX","HMM","JAA","HOM","BOG","SAA","SAE","VMA","MAC","MAZ","SPC","PIC","SPR")
 length_class: switch(($species/is("BVQ"),range(2,60)),($species/is("ATB"),range(2,15)),($species/is("WHB"),range(2,450)),($species/is("ANE"),range(2,240)),($species/is("PIL"),range(2,240)),($species/is("JAX"),range(2,550)),($species/is("HMM"),range(2,550)),($species/is("JAA"),range(2,440)),($species/is("HOM"),range(2,500)),($species/is("BOG"),range(2,400)),($species/is("SAA"),range(2,300)),($species/is("SAE"),range(2,300)),($species/is("VMA"),range(2,450)),($species/is("MAC"),range(2,450)),($species/is("MAZ"),range(2,450)),($species/is("SPC"),range(2,220)),($species/is("PIC"),range(2,220)),($species/is("SPR"),range(2,220)))
 abundance: regex("^(?:\d{1,12})(?:\.\d{1,2})?$") // match real numbers ≥ 0, ensuring up to 12 digits before the decimal point and up to 2 digits after the decimal point-numeric(14,2)
